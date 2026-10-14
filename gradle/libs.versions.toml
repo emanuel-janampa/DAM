@@ -17,7 +17,10 @@ koin = "4.2.2"
 kotlin = "2.4.10"
 material3 = "1.11.0-alpha07"
 ktor = "3.1.1"
+<<<<<<< HEAD
 security-crypto = "1.1.0-alpha06"
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -47,8 +50,11 @@ ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+<<<<<<< HEAD
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 androidx-security-crypto = { module = "androidx.security:security-crypto", version.ref = "security-crypto" }
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 

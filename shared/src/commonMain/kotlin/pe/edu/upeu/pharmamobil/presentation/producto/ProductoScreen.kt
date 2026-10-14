@@ -31,16 +31,23 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import pe.edu.upeu.pharmamobil.presentation.components.EstadoVacio
+<<<<<<< HEAD
 import pe.edu.upeu.pharmamobil.presentation.components.MensajeError
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import pe.edu.upeu.pharmamobil.presentation.components.MensajeExito
 import pe.edu.upeu.pharmamobil.presentation.components.ValidatedTextField
 
 @Composable
 fun ProductoScreen(
     viewModel: ProductoViewModel,
+<<<<<<< HEAD
     modifier: Modifier = Modifier,
     /** false oculta el formulario: la sesion no tiene CATALOGO_ESCRIBIR. */
     puedeRegistrar: Boolean = true
+=======
+    modifier: Modifier = Modifier
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 ) {
 
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -52,6 +59,7 @@ fun ProductoScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
 
+<<<<<<< HEAD
         if (puedeRegistrar) {
             FormularioProductoCard(
                 formulario = uiState.formulario,
@@ -62,15 +70,28 @@ fun ProductoScreen(
                 onRegistrar = viewModel::registrar
             )
         }
+=======
+        FormularioProductoCard(
+            formulario = uiState.formulario,
+            registrando = uiState.registrando,
+            onNombreChange = viewModel::onNombreChange,
+            onPrecioChange = viewModel::onPrecioChange,
+            onStockChange = viewModel::onStockChange,
+            onRegistrar = viewModel::registrar
+        )
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 
         uiState.mensajeExito?.let {
             MensajeExito(it)
         }
 
+<<<<<<< HEAD
         uiState.avisoError?.let {
             MensajeError(it)
         }
 
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
         EncabezadoInventario(uiState.fase)
 
         Box(

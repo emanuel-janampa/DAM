@@ -1,5 +1,6 @@
 package pe.edu.upeu.pharmamobil.di
 
+<<<<<<< HEAD
 import android.content.pm.ApplicationInfo
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.okhttp.OkHttp
@@ -8,6 +9,12 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import pe.edu.upeu.pharmamobil.data.local.AlmacenSeguro
 import pe.edu.upeu.pharmamobil.data.local.AlmacenSeguroAndroid
+=======
+import io.ktor.client.engine.HttpClientEngine
+import io.ktor.client.engine.okhttp.OkHttp
+import org.koin.core.qualifier.named
+import org.koin.dsl.module
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 
 actual val platformModule = module {
     single<HttpClientEngine> { OkHttp.create() }
@@ -15,6 +22,7 @@ actual val platformModule = module {
     // 10.0.2.2 es el "localhost" de la PC visto desde el emulador Android.
     // En un celular fisico usa la IP de tu PC en la red (ej. http://192.168.1.20:8080/).
     single(named(BASE_URL)) { "http://10.0.2.2:8080/" }
+<<<<<<< HEAD
 
     // Token cifrado con el Keystore: en Android necesita el Context.
     single<AlmacenSeguro> { AlmacenSeguroAndroid(androidContext()) }
@@ -23,4 +31,6 @@ actual val platformModule = module {
     single(named(ES_DEPURACION)) {
         (androidContext().applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0
     }
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 }

@@ -12,8 +12,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+<<<<<<< HEAD
 import androidx.compose.material.icons.automirrored.filled.Logout
 import androidx.compose.material.icons.filled.AccountCircle
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.LocalPharmacy
@@ -22,7 +25,10 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.DrawerValue
+<<<<<<< HEAD
 import androidx.compose.material3.CircularProgressIndicator
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -49,38 +55,57 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+<<<<<<< HEAD
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import kotlinx.coroutines.launch
 import org.koin.compose.KoinContext
 import org.koin.compose.viewmodel.koinViewModel
 
+<<<<<<< HEAD
 import pe.edu.upeu.pharmamobil.domain.model.Permisos
 import pe.edu.upeu.pharmamobil.domain.model.Sesion
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import pe.edu.upeu.pharmamobil.navigation.Screen
 import pe.edu.upeu.pharmamobil.presentation.cliente.ClienteScreen
 import pe.edu.upeu.pharmamobil.presentation.components.EstadoVacio
 import pe.edu.upeu.pharmamobil.presentation.inicio.InicioScreen
 import pe.edu.upeu.pharmamobil.presentation.producto.ProductoScreen
+<<<<<<< HEAD
 import pe.edu.upeu.pharmamobil.presentation.sesion.LoginScreen
 import pe.edu.upeu.pharmamobil.presentation.sesion.PerfilScreen
 import pe.edu.upeu.pharmamobil.presentation.sesion.SesionViewModel
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import pe.edu.upeu.pharmamobil.theme.PharmaMobilTheme
 
 /** Una sola fuente para el menu lateral y el titulo de la barra superior. */
 private data class Destino(
     val screen: Screen,
     val titulo: String,
+<<<<<<< HEAD
     val icono: ImageVector,
     /** Permiso que exige el servidor; el destino se oculta si la sesion no lo tiene. */
     val permiso: String? = null
+=======
+    val icono: ImageVector
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 )
 
 private val DESTINOS = listOf(
     Destino(Screen.Inicio, "Inicio", Icons.Default.Home),
+<<<<<<< HEAD
     Destino(Screen.Productos, "Productos", Icons.Default.Medication, Permisos.CATALOGO_LEER),
     Destino(Screen.Clientes, "Clientes", Icons.Default.Person, Permisos.CLIENTES_LEER),
     Destino(Screen.Pedidos, "Pedidos", Icons.Default.ShoppingCart, Permisos.VENTAS_LEER),
     Destino(Screen.Perfil, "Mi sesión", Icons.Default.AccountCircle)
+=======
+    Destino(Screen.Productos, "Productos", Icons.Default.Medication),
+    Destino(Screen.Clientes, "Clientes", Icons.Default.Person),
+    Destino(Screen.Pedidos, "Pedidos", Icons.Default.ShoppingCart)
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 )
 
 
@@ -96,6 +121,7 @@ private val ScreenSaver = Saver<Screen, Int>(
 @Composable
 fun App() = KoinContext {
 
+<<<<<<< HEAD
     val sesionViewModel: SesionViewModel = koinViewModel()
     val estado by sesionViewModel.uiState.collectAsStateWithLifecycle()
 
@@ -154,10 +180,13 @@ private fun ContenidoAutenticado(
     // Solo se ofrece lo que el rol puede usar: lo demas el servidor lo negaria con 403.
     val destinos = DESTINOS.filter { it.permiso == null || sesion.puede(it.permiso) }
 
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     var pantallaActual by rememberSaveable(stateSaver = ScreenSaver) {
         mutableStateOf<Screen>(Screen.Inicio)
     }
 
+<<<<<<< HEAD
     if (destinos.none { it.screen == pantallaActual }) {
         pantallaActual = Screen.Inicio
     }
@@ -165,12 +194,19 @@ private fun ContenidoAutenticado(
     // Cada inicio de sesion usa ViewModels nuevos: asi no se ven datos del usuario anterior.
     val claveDeSesion = sesion.token.hashCode().toString()
 
+=======
+    var darkTheme by rememberSaveable {
+        mutableStateOf(false)
+    }
+
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     val drawerState = rememberDrawerState(
         initialValue = DrawerValue.Closed
     )
 
     val scope = rememberCoroutineScope()
 
+<<<<<<< HEAD
     ModalNavigationDrawer(
 
         drawerState = drawerState,
@@ -210,10 +246,109 @@ private fun ContenidoAutenticado(
                         },
                         modifier = Modifier.padding(
                             NavigationDrawerItemDefaults.ItemPadding
+=======
+    PharmaMobilTheme(
+        darkTheme = darkTheme
+    ) {
+
+        ModalNavigationDrawer(
+
+            drawerState = drawerState,
+
+            drawerContent = {
+
+                ModalDrawerSheet {
+
+                    DrawerHeader()
+
+                    HorizontalDivider()
+
+                    Spacer(
+                        modifier = Modifier.height(12.dp)
+                    )
+
+                    DESTINOS.forEach { destino ->
+
+                        NavigationDrawerItem(
+                            label = {
+                                Text(destino.titulo)
+                            },
+                            selected = pantallaActual == destino.screen,
+                            onClick = {
+
+                                pantallaActual = destino.screen
+
+                                scope.launch {
+                                    drawerState.close()
+                                }
+                            },
+                            icon = {
+                                Icon(
+                                    imageVector = destino.icono,
+                                    contentDescription = null
+                                )
+                            },
+                            modifier = Modifier.padding(
+                                NavigationDrawerItemDefaults.ItemPadding
+                            )
+                        )
+                    }
+
+                    Spacer(
+                        modifier = Modifier.weight(1f)
+                    )
+
+                    HorizontalDivider()
+
+                    ModoOscuro(
+                        activo = darkTheme,
+                        onCambiar = { darkTheme = it }
+                    )
+                }
+            }
+        ) {
+
+            Scaffold(
+
+                topBar = {
+
+                    TopAppBar(
+
+                        title = {
+                            Text(
+                                text = tituloDe(pantallaActual)
+                            )
+                        },
+
+                        navigationIcon = {
+
+                            IconButton(
+                                onClick = {
+
+                                    scope.launch {
+
+                                        drawerState.open()
+                                    }
+                                }
+                            ) {
+
+                                Icon(
+                                    imageVector = Icons.Default.Menu,
+                                    contentDescription = "Abrir menú"
+                                )
+                            }
+                        },
+
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = MaterialTheme.colorScheme.primaryContainer,
+                            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                            navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
                         )
                     )
                 }
 
+<<<<<<< HEAD
                 Spacer(
                     modifier = Modifier.weight(1f)
                 )
@@ -340,6 +475,43 @@ private fun ContenidoAutenticado(
                             viewModel = koinViewModel(key = "perfil-$claveDeSesion"),
                             onCerrarSesion = onCerrarSesion
                         )
+=======
+            ) { paddingValues ->
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(paddingValues)
+                ) {
+
+                    when (pantallaActual) {
+
+                        Screen.Inicio ->
+                            InicioScreen(
+                                onNavegar = { destino ->
+                                    pantallaActual = destino
+                                }
+                            )
+
+                        Screen.Productos ->
+                            ProductoScreen(
+                                viewModel = koinViewModel()
+                            )
+
+                        Screen.Clientes ->
+                            ClienteScreen(
+                                viewModel = koinViewModel()
+                            )
+
+                        Screen.Pedidos ->
+                            EstadoVacio(
+                                icono = Icons.Default.ShoppingCart,
+                                titulo = "Pedidos en construcción",
+                                descripcion = "Este módulo llega en una próxima sesión del curso.",
+                                modifier = Modifier.align(Alignment.Center)
+                            )
+                    }
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
                 }
             }
         }
@@ -348,7 +520,11 @@ private fun ContenidoAutenticado(
 
 
 @Composable
+<<<<<<< HEAD
 private fun DrawerHeader(sesion: Sesion) {
+=======
+private fun DrawerHeader() {
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 
     Row(
         modifier = Modifier
@@ -381,7 +557,11 @@ private fun DrawerHeader(sesion: Sesion) {
             )
 
             Text(
+<<<<<<< HEAD
                 text = sesion.nombreCompleto,
+=======
+                text = "Gestión farmacéutica",
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )

@@ -6,10 +6,14 @@ import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+<<<<<<< HEAD
 import pe.edu.upeu.pharmamobil.data.repository.FakeAuthRepository
 import pe.edu.upeu.pharmamobil.data.repository.FakeProductoRepository
 import pe.edu.upeu.pharmamobil.domain.usecase.CerrarSesionUseCase
 import pe.edu.upeu.pharmamobil.presentation.sesion.GestorSesion
+=======
+import pe.edu.upeu.pharmamobil.data.repository.FakeProductoRepository
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import pe.edu.upeu.pharmamobil.domain.model.Producto
 import pe.edu.upeu.pharmamobil.domain.usecase.ListarProductosUseCase
 import pe.edu.upeu.pharmamobil.domain.usecase.RegistrarProductoUseCase
@@ -42,8 +46,12 @@ class ProductoViewModelTest {
         repositorio: FakeProductoRepository = FakeProductoRepository()
     ) = ProductoViewModel(
         registrarProducto = RegistrarProductoUseCase(repositorio),
+<<<<<<< HEAD
         listarProductos = ListarProductosUseCase(repositorio),
         gestorSesion = GestorSesion(CerrarSesionUseCase(FakeAuthRepository()))
+=======
+        listarProductos = ListarProductosUseCase(repositorio)
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     )
 
     @Test

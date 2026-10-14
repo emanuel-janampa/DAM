@@ -4,9 +4,13 @@ data class ProductoUiState(
     val fase: Fase = Fase.Cargando,
     val formulario: FormularioProducto = FormularioProducto(),
     val registrando: Boolean = false,
+<<<<<<< HEAD
     val mensajeExito: String? = null,
     /** Fallo que no reemplaza el listado, p. ej. 403 al registrar. */
     val avisoError: String? = null
+=======
+    val mensajeExito: String? = null
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 ) {
 
     /** Fases excluyentes del inventario: solo una puede estar activa. */

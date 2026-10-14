@@ -8,6 +8,7 @@ import kotlinx.coroutines.test.setMain
 import org.koin.core.Koin
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
+<<<<<<< HEAD
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import pe.edu.upeu.pharmamobil.data.local.AlmacenSeguro
@@ -17,6 +18,8 @@ import pe.edu.upeu.pharmamobil.domain.repository.AuthRepository
 import pe.edu.upeu.pharmamobil.presentation.sesion.GestorSesion
 import pe.edu.upeu.pharmamobil.presentation.sesion.PerfilViewModel
 import pe.edu.upeu.pharmamobil.presentation.sesion.SesionViewModel
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import pe.edu.upeu.pharmamobil.data.repository.ClienteRepositorioApi
 import pe.edu.upeu.pharmamobil.data.repository.ProductoRepositorioApi
 import pe.edu.upeu.pharmamobil.domain.repository.ClienteRepository
@@ -59,6 +62,7 @@ class AppModuleTest {
         Dispatchers.resetMain()
     }
 
+<<<<<<< HEAD
     // El almacen real (Keystore/Keychain) no existe en las pruebas del host: se
     // sustituye por uno en memoria. Como va al final, reemplaza al de platformModule.
     private val sustitutosDePrueba = module {
@@ -74,6 +78,10 @@ class AppModuleTest {
             platformModule,
             sustitutosDePrueba
         )
+=======
+    private fun grafoCompleto(): Koin = startKoin {
+        modules(dataModule, domainModule, presentationModule, platformModule)
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     }.koin
 
     @Test
@@ -119,6 +127,7 @@ class AppModuleTest {
         koin.get<ProductoViewModel>()
         koin.get<ClienteViewModel>()
     }
+<<<<<<< HEAD
 
     @Test
     fun resuelveElRepositorioDeAutenticacionYLosCasosDeUsoDeSesion() {
@@ -140,4 +149,6 @@ class AppModuleTest {
         koin.get<SesionViewModel>()
         koin.get<PerfilViewModel>()
     }
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 }

@@ -3,7 +3,11 @@
 Aplicación Kotlin Multiplatform (Android + iOS) con Compose Multiplatform, Clean Architecture + MVVM y Koin.
 Consume el backend **PharmaSoft** (Spring Boot + Oracle) mediante **Ktor Client**.
 
+<<<<<<< HEAD
 Práctica de laboratorio N.º 10 · Autenticación JWT y almacenamiento seguro (continúa la N.º 07: cliente Ktor).
+=======
+Práctica de laboratorio N.º 07 · Cliente Ktor y consumo GET — rama `feature/ktor-client`.
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 
 ## Conexión con la API
 
@@ -64,6 +68,7 @@ data: repositorios Api → ProductoApi / ClienteApi (HttpClient) → DTO → map
 
 - Formulario de clientes: el backend exige `dni` (8 dígitos) y `apellidos`, que la app aún no captura.
 - Formulario de productos: se envía con categoría fija (`CATEGORIA_POR_DEFECTO = 1`) hasta agregar categorías al dominio.
+<<<<<<< HEAD
 - PUT/DELETE y persistencia offline.
 
 
@@ -102,3 +107,6 @@ PharmaMobil inicia sesión contra `POST /api/v1/auth/login` y envía el JWT en c
 | `admin` | `Admin123` | ADMIN | Los ocho permisos |
 | `vendedor` | `Vendedor123` | VENDEDOR | Catálogo solo lectura; clientes y ventas completos |
 | `almacen` | `Almacen123` | ALMACENERO | Catálogo: leer y escribir |
+=======
+- PUT/DELETE, autenticación JWT y persistencia offline.
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190

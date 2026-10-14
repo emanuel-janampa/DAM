@@ -48,9 +48,12 @@ kotlin {
 
             // 2. MOTOR DE RED PARA ANDROID (OkHttp)
             implementation(libs.ktor.client.okhttp)
+<<<<<<< HEAD
 
             // Almacen cifrado del token (EncryptedSharedPreferences + Android Keystore)
             implementation(libs.androidx.security.crypto)
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
         }
         iosMain.dependencies {
             // 3. MOTOR DE RED PARA IOS (Darwin)
@@ -73,7 +76,10 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.ktor.client.logging)
+<<<<<<< HEAD
             implementation(libs.ktor.client.auth)
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

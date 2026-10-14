@@ -27,8 +27,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
+<<<<<<< HEAD
 import pe.edu.upeu.pharmamobil.domain.model.Permisos
 import pe.edu.upeu.pharmamobil.domain.model.Sesion
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 import pe.edu.upeu.pharmamobil.navigation.Screen
 
 /** Cada acceso rapido de la portada lleva a uno de los modulos de la app. */
@@ -36,9 +39,13 @@ private data class Opcion(
     val screen: Screen,
     val icono: ImageVector,
     val titulo: String,
+<<<<<<< HEAD
     val descripcion: String,
     /** Permiso que exige el servidor para este modulo; null = sin restriccion. */
     val permiso: String? = null
+=======
+    val descripcion: String
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 )
 
 private val OPCIONES = listOf(
@@ -46,28 +53,43 @@ private val OPCIONES = listOf(
         screen = Screen.Productos,
         icono = Icons.Default.Medication,
         titulo = "Registrar productos",
+<<<<<<< HEAD
         descripcion = "Da de alta medicamentos con su precio y su stock.",
         permiso = Permisos.CATALOGO_LEER
+=======
+        descripcion = "Da de alta medicamentos con su precio y su stock."
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     ),
     Opcion(
         screen = Screen.Clientes,
         icono = Icons.Default.Person,
         titulo = "Registrar clientes",
+<<<<<<< HEAD
         descripcion = "Guarda los datos de contacto para la boleta.",
         permiso = Permisos.CLIENTES_LEER
+=======
+        descripcion = "Guarda los datos de contacto para la boleta."
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     ),
     Opcion(
         screen = Screen.Pedidos,
         icono = Icons.Default.ShoppingCart,
         titulo = "Revisar pedidos",
+<<<<<<< HEAD
         descripcion = "Disponible en una próxima sesión del curso.",
         permiso = Permisos.VENTAS_LEER
+=======
+        descripcion = "Disponible en una próxima sesión del curso."
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     )
 )
 
 @Composable
 fun InicioScreen(
+<<<<<<< HEAD
     sesion: Sesion,
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     onNavegar: (Screen) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -80,15 +102,23 @@ fun InicioScreen(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
 
+<<<<<<< HEAD
         Portada(nombre = sesion.nombreCompleto)
+=======
+        Portada()
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 
         Text(
             text = "Qué puedes hacer",
             style = MaterialTheme.typography.titleMedium
         )
 
+<<<<<<< HEAD
         // Solo se ofrece lo que el rol puede usar: si no, el servidor responderia 403.
         OPCIONES.filter { it.permiso == null || sesion.puede(it.permiso) }.forEach { opcion ->
+=======
+        OPCIONES.forEach { opcion ->
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 
             AccesoRapido(
                 icono = opcion.icono,
@@ -104,7 +134,11 @@ fun InicioScreen(
 
 
 @Composable
+<<<<<<< HEAD
 private fun Portada(nombre: String) {
+=======
+private fun Portada() {
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
 
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -131,11 +165,14 @@ private fun Portada(nombre: String) {
             )
 
             Text(
+<<<<<<< HEAD
                 text = "Hola, $nombre",
                 style = MaterialTheme.typography.titleMedium
             )
 
             Text(
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
                 text = "Sistema de gestión farmacéutica para tu cadena de boticas.",
                 style = MaterialTheme.typography.bodyMedium
             )

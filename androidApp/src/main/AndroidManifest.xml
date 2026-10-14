@@ -3,13 +3,20 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+<<<<<<< HEAD
     <!-- allowBackup=false: el token cifrado depende de una llave del Keystore que
          NO viaja en las copias de seguridad; restaurarlo dejaria el almacen ilegible. -->
+=======
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
     <!-- usesCleartextTraffic: solo para desarrollo contra http://10.0.2.2:8080.
          En produccion usar HTTPS y quitar este atributo. -->
     <application
         android:name=".MainApplication"
+<<<<<<< HEAD
         android:allowBackup="false"
+=======
+        android:allowBackup="true"
+>>>>>>> 5e0efee5a01d7e38fc7329cd95e859bdc6de4190
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
